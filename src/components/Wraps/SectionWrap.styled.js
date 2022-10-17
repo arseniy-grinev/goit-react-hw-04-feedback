@@ -5,6 +5,7 @@ export const Section = styled.section`
   align-items: center;
   margin-bottom: 40px;
   margin-left: 30px;
+  font-size: 16px;
 `;
 
 export const Title = styled.h2`

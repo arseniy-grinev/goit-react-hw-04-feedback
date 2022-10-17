@@ -3,6 +3,7 @@ import FeedbackOptions from './FeedbackOptions';
 import { AppWrap } from './AppWrap.styled';
 import { SectionWrap } from './Wraps/SectionWrap';
 import Statistics from './Statistics';
+import Notification from './Notification';
 // import { }
 
 export class App extends Component {
@@ -43,13 +44,17 @@ export class App extends Component {
           />
         </SectionWrap>
         <SectionWrap title="Statistics">
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={total}
-            positive={positive}
-          />
+          {total ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positive={positive}
+            />
+          ) : (
+            <Notification message="There is no feedback" />
+          )}
         </SectionWrap>
       </AppWrap>
     );
