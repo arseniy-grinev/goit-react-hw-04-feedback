@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
-import { Section, Title } from './SectionWrap.styled';
+import { SectionWrap, Title } from './Section.styled';
 
-export const SectionWrap = ({ title, children }) => {
+export const Section = ({ title, children }) => {
   return (
-    <Section>
+    <SectionWrap>
       {title && <Title>{title}</Title>}
       {children}
-    </Section>
+    </SectionWrap>
   );
 };
 
-SectionWrap.propTypes = {
+Section.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.node,
 };

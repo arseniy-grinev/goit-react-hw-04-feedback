@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import FeedbackOptions from './FeedbackOptions';
 import { AppWrap } from './AppWrap.styled';
-import { SectionWrap } from './Wraps/SectionWrap';
+import { Section } from './Section/Section';
 import Statistics from './Statistics';
 import Notification from './Notification';
 // import { }
@@ -25,9 +25,9 @@ export class App extends Component {
   }
 
   countPositiveFeedbackPercentage() {
-    const { bad } = this.state;
+    const { good } = this.state;
     const total = this.countTotalFeedback();
-    return Math.round(((total - bad) / total) * 100) || 0;
+    return Math.round((good / total) * 100) || 0;
   }
 
   render() {
@@ -37,13 +37,13 @@ export class App extends Component {
 
     return (
       <AppWrap>
-        <SectionWrap title={'Pleace leave feedback'}>
+        <Section title={'Pleace leave feedback'}>
           <FeedbackOptions
             options={this.state}
             onLeaveFeedback={this.incrementOption}
           />
-        </SectionWrap>
-        <SectionWrap title="Statistics">
+        </Section>
+        <Section title="Statistics">
           {total ? (
             <Statistics
               good={good}
@@ -55,7 +55,7 @@ export class App extends Component {
           ) : (
             <Notification message="There is no feedback" />
           )}
-        </SectionWrap>
+        </Section>
       </AppWrap>
     );
   }

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Section = styled.section`
+export const SectionWrap = styled.section`
   /* display: flex; */
   align-items: center;
   margin-bottom: 40px;
